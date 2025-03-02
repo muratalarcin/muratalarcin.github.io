@@ -1,13 +1,6 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
-
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'contact@example.com';
+  // Gmail SMTP ayarlarıyla çalışacak şekilde yapılandırılmış form
+  $receiving_email_address = 'murattrbl@icloud.com';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
     include( $php_email_form );
@@ -23,19 +16,27 @@
   $contact->from_email = $_POST['email'];
   $contact->subject = $_POST['subject'];
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
+  // 📌 SMTP AYARLARI (Gmail Kullanarak Göndermek İçin)
   $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
+    'host' => 'smtp.gmail.com', // Gmail SMTP Sunucusu
+    'username' => 'murattrbl@icloud.com', // Kendi email adresin
+    'password' => 'uyfwhoyknfjktodfkt', // App Password (Google'dan aldığın şifre)
+    'port' => '587', // Gmail SMTP portu
+    'encryption' => 'tls' // TLS kullanarak güvenli bağlantı sağlar
   );
-  */
 
+  // 📩 Mesaj içeriğini belirle
   $contact->add_message( $_POST['name'], 'From');
   $contact->add_message( $_POST['email'], 'Email');
   $contact->add_message( $_POST['message'], 'Message', 10);
+
+  // Hata mesajlarını İngilizce yap
+  $contact->error_messages = array(
+    'empty_fields' => 'Please fill in all fields.',
+    'invalid_email' => 'Invalid email format.',
+    'short_message' => 'Message is too short.',
+    'sending_failed' => 'Failed to send the message. Please try again later.'
+  );
 
   echo $contact->send();
 ?>
