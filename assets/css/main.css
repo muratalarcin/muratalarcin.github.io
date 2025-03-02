@@ -695,6 +695,19 @@ section,
   font-weight: bold;;
 }
 
+.cv-download {
+  margin-top: 20px; /* Üstten boşluk bırak */
+  display: flex;
+  
+}
+
+.cv-download .btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+
 .hero img {
   position: absolute;
   inset: 0;
