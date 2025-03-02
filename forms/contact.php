@@ -1,5 +1,4 @@
 <?php
-  // Gmail SMTP ayarlarıyla çalışacak şekilde yapılandırılmış form
   $receiving_email_address = 'murattrbl@icloud.com';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
@@ -16,21 +15,18 @@
   $contact->from_email = $_POST['email'];
   $contact->subject = $_POST['subject'];
 
-  // 📌 SMTP AYARLARI (Gmail Kullanarak Göndermek İçin)
   $contact->smtp = array(
-    'host' => 'smtp.gmail.com', // Gmail SMTP Sunucusu
-    'username' => 'murattrbl@icloud.com', // Kendi email adresin
-    'password' => 'uyfwhoyknfjktodfkt', // App Password (Google'dan aldığın şifre)
-    'port' => '587', // Gmail SMTP portu
-    'encryption' => 'tls' // TLS kullanarak güvenli bağlantı sağlar
+    'host' => 'smtp.gmail.com', 
+    'username' => 'murattrbl@icloud.com',
+    'password' => 'uyfwhoyknfjktodfkt',
+    'port' => '587',
+    'encryption' => 'tls'
   );
 
-  // 📩 Mesaj içeriğini belirle
   $contact->add_message( $_POST['name'], 'From');
   $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+  $contact->add_message( $_POST['message'], 'Message', 100);
 
-  // Hata mesajlarını İngilizce yap
   $contact->error_messages = array(
     'empty_fields' => 'Please fill in all fields.',
     'invalid_email' => 'Invalid email format.',
