@@ -683,6 +683,18 @@ section,
   justify-content: center;
 }
 
+.hero .btn-primary {
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 12px 25px;
+  background-color: #53789f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;;
+}
+
 .hero img {
   position: absolute;
   inset: 0;
