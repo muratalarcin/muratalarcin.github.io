@@ -8,7 +8,7 @@
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
-  --background-color: #000000; /* Background color for the entire website, including individual sections */
+  --background-gradient: linear-gradient(90deg, #000000, #4a4a4a, #858585);
   --default-color: #fafafa; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #18d26e; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
@@ -51,7 +51,7 @@
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background: var(--background-gradient);
   font-family: var(--default-font);
 }
 
@@ -617,7 +617,7 @@ h6 {
 section,
 .section {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background: var(--background-gradient);
   padding: 60px 0;
   scroll-margin-top: 100px;
   overflow: clip;
